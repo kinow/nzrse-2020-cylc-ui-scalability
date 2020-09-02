@@ -34,10 +34,10 @@
 
 						- UI scalability
 							- Building user experience at scale
-							- *“As we add <span style="text-decoration: underline">more features</span> in the
-								product, the UI must <span style="text-decoration: underline">support
+							- *“As we add <span class="underline">more features</span> in the
+								product, the UI must <span class="underline">support
 								scalability</span> and, at the same time, provide a
-								<span style="text-decoration: underline">seamless experience that minimizes
+								<span class="underline">seamless experience that minimizes
 								distraction</span>.”* [2]
 					</textarea>
 				</section>
@@ -56,9 +56,9 @@
 
 				<section data-markdown>
 					<textarea data-template>
-						## 1) UX in the browser vs. desktop
+						#### 1) UX in the browser vs. desktop
 
-						- Challenges
+						- <span class="underline">Challenges</span>
 							- Limited access to hardware resources
 							- Different security model (HTTP, JS, Sandboxing, browser extensions…)
 							- Single window/tab mode in browser
@@ -73,6 +73,31 @@
 
 						<img class="image" src="images/cylc7-gui.png" alt="Cylc 7 GUI">
 						<p class="image-legend">Cylc 7 GUI</p>
+					</textarea>
+				</section>
+
+				<section data-markdown style="font-size: 85%">
+					<textarea data-template>
+						#### 1) UX in the browser vs. desktop
+
+						- <span class="underline">Solutions</span>
+							- Reduce complexity for UX, also improving performance
+							- Reusable **components** (Vue and Vuetify)
+							- **Virtual DOM** (Vue)
+							- Sensible defaults
+							  - e.g. jobs and job details are collapsed by default in the Tree view limiting number of visible elements
+							  - the default landing page puts little load on the backend
+							- Web development good practices (caching where possible, security headers, cookies flags)
+							- **Reactive** (Vue and WebSockets) instead of periodically polling
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### 1) UX in the browser vs. desktop
+
+						<img class="image" src="images/cylc8-web-ui.png" alt="Cylc 8 Web UI">
+						<p class="image-legend">Cylc 8 Web UI</p>
 					</textarea>
 				</section>
 			</div>
