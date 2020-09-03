@@ -56,6 +56,11 @@
 
 				<section data-markdown>
 					<textarea data-template>
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
 						#### 1) UX in the browser vs. desktop
 
 						- <span class="underline">Challenges</span>
@@ -98,6 +103,54 @@
 
 						<img class="image" src="images/cylc8-web-ui.png" alt="Cylc 8 Web UI">
 						<p class="image-legend">Cylc 8 Web UI</p>
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### 1) UX in the browser vs. desktop
+
+						<img class="image" src="images/cylc8-web-ui.gif" alt="Cylc 8 Web UI">
+						<p class="image-legend">Cylc 8 Web UI</p>
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### 1) UX in the browser vs. desktop
+
+						<img class="image" src="images/cylc8-web-responsive-ui.gif" style="height: 30rem !important;" alt="Cylc 8 Web responsive UI">
+						<p class="image-legend">Cylc 8 Web responsive UI</p>
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### 2) Incremental data updates
+
+						- <span class="underline">Challenges</span>
+
+							- Cylc handles **complex and cyclic workflows** (directed cyclic graphs)
+							- A workflow may have many **updates** in a short time (or the reverse!)
+							- Designing an **API to serve Cylc workflow data is hard**
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### 2) Incremental data updates
+
+						- <span class="underline">Solutions</span>
+
+							- Use **GraphQL** to model the API
+								- Greater flexibility to the UI to build components via queries, fragments, variables
+							- **WebSockets** connections to send backend data to the UI
+							- UI elements are **reactive**, updated only when the data changes
 					</textarea>
 				</section>
 			</div>
