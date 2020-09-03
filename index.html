@@ -131,7 +131,7 @@
 
 				<section data-markdown>
 					<textarea data-template>
-						#### 2) Incremental data updates
+						#### 2) Displaying Cylc workflow data
 
 						- <span class="underline">Challenges</span>
 
@@ -143,7 +143,7 @@
 
 				<section data-markdown>
 					<textarea data-template>
-						#### 2) Incremental data updates
+						#### 2) Displaying Cylc workflow data
 
 						- <span class="underline">Solutions</span>
 
@@ -151,6 +151,91 @@
 								- Greater flexibility to the UI to build components via queries, fragments, variables
 							- **WebSockets** connections to send backend data to the UI
 							- UI elements are **reactive**, updated only when the data changes
+							- Send workflow **deltas** (add/remove/update)
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### 2) Displaying Cylc workflow data
+
+						We are using GraphQL instead of REST
+
+						```gql
+						# A GraphQL query, with `workflowId` parameter
+						# `subscription` here means that we want to receive
+						# updates (we will subscribe to a query), in our case
+						# with WebSockets.
+						subscription ($workflowId: ID) {
+							workflows(ids: [$workflowId]) {
+								id
+								name
+								taskProxies {
+									...TaskProxyDataFragment
+								}
+								nodesEdges { … }
+							}
+						}
+						```
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### 2) Displaying Cylc workflow data
+
+						<img class="image" src="images/cylc8-graphiql.gif" style="height: 30rem !important;" alt="GraphiQL">
+						<p class="image-legend">GraphiQL</p>
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### 3) Other challenges (with solutions)
+
+						- Support **multiple browsers**
+							- Our UI app is built with **webpack** and **babel**
+							- **Polyfills** when necessary
+						- Screen size
+							- CSS framework that supports **responsive layouts**
+							- Custom components for responsive layouts
+						- Accessibility
+							- **i18n**
+							- **theming** (e.g. color-blindness, high-contrast…)
+							- WCAG 2.0/2.1 [3], section 508 [4]
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### Future improvements
+
+						- Lazy loading
+							- Load tree and graph nodes on-demand
+						- Virtual scrolling
+						- throttling/debouncing
+						- HTTP/2
+						  - blocked by Tornado #1438
+						- Scale JupyterHub (k8s support, but database constraint)
+						- Caching of other resources (assets, queries…)
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### References
+
+						1. Graph Databases: Their Power and Limitations
+						2. https://blog.rapid7.com/2011/11/10/technology-meets-empathy/
+						3. https://www.w3.org/TR/WCAG21/
+						4. https://section508.gov/
+
+						For more: https://cylc.github.io/
 					</textarea>
 				</section>
 			</div>
